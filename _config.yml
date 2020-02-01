@@ -8,7 +8,7 @@ subtitle: 'blogs for ash'
 description: 'blogs for ash'
 keywords:
 author: ash
-language: zh-CN
+language: zh-tw
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -93,9 +93,10 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: 'git'
+  repo: 'https://github.com/aichiko0225/hexo_ash'
