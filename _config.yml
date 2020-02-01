@@ -8,8 +8,8 @@ subtitle: 'blogs for ash'
 description: 'blogs for ash'
 keywords:
 author: ash
-language: zh-tw
-timezone: 'Asia/Shanghai'
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
