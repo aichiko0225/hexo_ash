@@ -4,8 +4,8 @@
 
 # Site
 title: ash
-subtitle: 'blogs for ash'
-description: 'blogs for ash'
+subtitle: '我只是一个影子，虽然我发着光。。。'
+description: '我只是一个影子，虽然我发着光。。。'
 keywords:
 author: ash
 language: zh-CN
@@ -100,3 +100,13 @@ theme: next
 deploy:
   type: 'git'
   repo: 'https://github.com/aichiko0225/hexo_ash'
+
+categories:
+  - iOS
+  - wuhan
+
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
