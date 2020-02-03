@@ -37,6 +37,7 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+<!-- more -->
 
 ### mock code
 
@@ -45,4 +46,6 @@ let a = 1
 print(a)
 ```
 
-![2333](/images/image.jpg)
+<!-- <img src="/images/image.jpg" width="100" height="100"> -->
+
+<!-- ![](/images/image.jpg) -->
