@@ -269,9 +269,10 @@ reward_settings:
   # If true, reward will be displayed in every article by default.
   enable: false
   animation: false
-  #comment: Donate comment here.
+  # comment: Donate comment here.
 
 reward:
+  pay: /images/image.jpg
   #wechatpay: /images/wechatpay.png
   #alipay: /images/alipay.png
   #bitcoin: /images/bitcoin.png
@@ -580,7 +581,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: changyan | disqus | disqusjs | gitalk | livere | valine
-  active: valine | gitalk
+  active: valine
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -703,8 +704,8 @@ cnzz_siteid:
 # Do not enable both `valine.visitor` and `leancloud_visitors`.
 leancloud_visitors:
   enable: false
-  app_id: # <app_id>
-  app_key: # <app_key>
+  app_id: yRQeAmJB0UkITMWro77cGqjX-9Nh9j0Va # <app_id>
+  app_key: OxhbERgDrB6ImE5KHNuq0Az3 # <app_key>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
