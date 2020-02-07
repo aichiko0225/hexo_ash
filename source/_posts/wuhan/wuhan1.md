@@ -1,7 +1,8 @@
 ---
 title: 2020-01-28 武汉封城第五天
 date: 2020-01-28
-categories: wuhan
+categories: 武汉
+tags: 杂谈
 ---
 
 大年初四，同样是封城之后的第五天。

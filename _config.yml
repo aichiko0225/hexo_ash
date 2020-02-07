@@ -103,7 +103,19 @@ deploy:
 
 categories:
   - iOS
-  - wuhan
+  - Python
+  - Java
+  - 武汉
+  - 随便写写
+  - 关于世界的一切
+
+tags:
+  - iOS
+  - Swift
+  - Flutter
+  - 逆向
+  - 基础知识
+  - 杂谈
 
 search:
   path: search.xml
