@@ -4,7 +4,6 @@ date: 2020-03-10 21:51:59
 categories: Python
 ---
 
-
 ### 数据结构和算法
 
 - 算法：解决问题的方法和步骤
@@ -19,7 +18,7 @@ categories: Python
   - <img src="http://latex.codecogs.com/gif.latex?O(n^3)" style="margin-bottom: 0; display:inline;"/> - 立方时间复杂度 - Floyd算法 / 矩阵乘法运算
   - <img src="http://latex.codecogs.com/gif.latex?O(2^n)" style="margin-bottom: 0; display:inline;"/> - 几何级数时间复杂度 - 汉诺塔
   - <img src="http://latex.codecogs.com/gif.latex?O(n!)" style="margin-bottom: 0; display:inline;"/> - 阶乘时间复杂度 - 旅行经销商问题 - NP
-
+<!-- more -->
 - 排序算法（选择、冒泡和归并）和查找算法（顺序和折半）
 
 ```Python
