@@ -98,8 +98,10 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: 'git'
-  repo: 'https://github.com/aichiko0225/hexo_ash'
+  - type: 'git'
+    repo: 'https://github.com/aichiko0225/hexo_ash'
+  - type: leancloud_counter_security_sync
+
 
 categories:
   - iOS
@@ -130,3 +132,10 @@ symbols_count_time:
   time: true
   total_symbols: true
   total_time: true
+
+leancloud_counter_security:
+  enable_sync: true
+  app_id: yRQeAmJB0UkITMWro77cGqjX-9Nh9j0Va
+  app_key: OxhbERgDrB6ImE5KHNuq0Az3
+  username: aichiko66@163.com # Will be asked while deploying if is left blank
+  password: Xucheng225917
