@@ -120,6 +120,7 @@ tags:
   - 基础知识
   - 杂谈
   - Runtime
+  - Flask
 
 search:
   path: search.xml
