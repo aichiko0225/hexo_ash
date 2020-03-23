@@ -322,6 +322,213 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app=app)
 ```
 
+#### 连接数据库服务器
+
+DBMS通常会提供数据库服务器运行在操作系统中。要连接数据库服务器，首先要为我们的程序指定数据库URI（Uniform Resource
+Identifier，统一资源标识符）。数据库URI是一串包含各种属性的字符串，其中包含了各种用于连接数据库的信息。
+
+![常用的数据库URI格式](/images/flask/w5.png)
+
+在`Flask-SQLAlchemy`中，数据库的URI通过配置变量`SQLALCHEMY_DATABASE_URI`设置，默认为SQLite内存型数据库`(sqlite:///:memory:)`。`SQLite`是基于文件的`DBMS`，不需要设置数据库服务器，只需要指定数据库文件的绝对路径。
+
+在生产环境下更换到其他类型的`DBMS`时，数据库URL会包含敏感 信息，所以这里优先从环境变量`DATABASE_URL`获取(注意这里为了便于理解使用了URL，而不是URI)。
+
+安装并初始化`Flask-SQLAlchemy`后，启动程序时会看到命令行下有一行警告信息。这是因为`Flask-SQLAlchemy`建议你设置 `SQLALCHEMY_TRACK_MODIFICATIONS`配置变量，这个配置变量决定是否追踪对象的修改，这用于`Flask-SQLAlchemy`的事件通知系统。这 个配置键的默认值为None，如果没有特殊需要，我们可以把它设为False来关闭警告信息。
+
+```Python
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+```
+
+#### 定义数据库模型
+
+用来映射到数据库表的Python类通常被称为数据库模型
+(model)，一个数据库模型类对应数据库中的一个表。定义模型即使用Python类定义表模式，并声明映射关系。所有的模型类都需要继承`Flask-SQLAlchemy`提供的`db.Model`基类。本章的示例程序是一个笔记程序，笔记保存到数据库中，你可以通过程序查询、添加、更新和删除笔记。
+
+```Python
+class Note(db.Model):
+    """
+    创建一个数据库Model
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
+```
+
+在上面的模型类中，表的字段（列）由db.Column类的实例表示，字段的类型通过Column类构造方法的第一个参数传入。在这个模型中，我们创建了一个类型为db.Integer的id字段和类型为db.Text的body列，分别存储整型和文本。
+
+![SQLAlchemy常用的字段类型](/images/flask/w6.png)
+
+字段类型一般直接声明即可，如果需要传入参数，你也可以添加括号。对于类似String的字符串列，有些数据库会要求限定长度，因此最 好为其指定长度。虽然使用Text类型可以存储相对灵活的变长文本，但从性能上考虑，我们仅在必须的情况下使用Text类型，比如用户发表的文章和评论等不限长度的内容。
+
+一般情况下，字段的长度是由程序设计者自定的。尽管如此，也有一些既定的约束标准，比如姓名（英语）的长度一般不超过70个字符，中文名一般不超过20个字符，电子邮件地址的长度不超过254个字符，虽然各主流浏览器支持长达2048个字符的URL，但在网站中用户资料设置的限度一般为255。尽管如此，对于超过一定长度的Email和URL，比如20个字符，会在显示时添加省略号的形式。显示的用户名（username）允许重复，通常要短一些，以不超过36个字符为佳。当然，在程序中，你可以根据需要来自由设定这些限制值。
+
+![常用的SQLAlchemy字段参数](/images/flask/w7.png)
+
+#### 创建数据库和表
+
+如果把数据库（文件）看作一个仓库，为了方便取用，我们需要把货物按照类型分别放置在不同货架上，这些货架就是数据库中的表。创建模型类后，我们需要手动创建数据库和对应的表，也就是我们常说的建库和建表。这通过对我们的db对象调用create_all()方法实现。
+
+### 数据库操作
+
+现在我们创建了模型，也生成了数据库和表，是时候来学习常用的数据库操作了。数据库操作主要是`CRUD`，即Create（创建）、Read（读取/查询）、Update（更新）和Delete（删除）。
+`SQLAlchemy`使用数据库会话来管理数据库操作，这里的数据库会话也称为事务(`transaction`)。`Flask-SQLAlchemy`自动帮我们创建会话，可以通过`db.session`属性获取。
+数据库中的会话代表一个临时存储区，你对数据库做出的改动都会存放在这里。你可以调用`add()`方法将新创建的对象添加到数据库会话中，或是对会话中的对象进行更新。只有当你对数据库会话对象调用`commit()`方法时，改动才被提交到数据库，这确保了数据提交的一致性。另外，数据库会话也支持回滚操作。当你对会话调用`rollback()`方法时，添加到会话中且未提交的改动都将被撤销。
+
+#### CRUD
+
+这一节我们会在`Python Shell`中演示`CRUD`操作。默认情况下，`Flask-SQLAlchemy`(>=2.3.0版本)会自动为模型类生成一个`__repr__()`方法。当在`Python Shell`中调用模型的对象时，`__repr__()`方法会返回一条类似“<模型类名主键值>”的字符串，比如`<Note>`。
+
+1. Create
+添加一条新记录到数据库主要分为三步：
+    - 创建Python对象（实例化模型类）作为一条记录。
+    - 添加新创建的记录到数据库会话。
+    - 提交数据库会话。
+
+2. Read
+我们已经知道了如何向数据库里添加记录，那么如何从数据库里取回数据呢？使用模型类提供的query属性附加调用各种过滤方法及查询方法可以完成这个任务。
+
+```Python
+<模型类>.query.<过滤方法>.<查询方法>
+```
+
+从某个模型类出发，通过在query属性对应的Query对象上附加的过滤方法和查询函数对模型类对应的表中的记录进行各种筛选和调整，最终返回包含对应数据库记录数据的模型类实例，对返回的实例调用属性即可获取对应的字段数据。
+
+![常用的SQLAlchemy查询方法](/images/flask/w8.png)
+
+精确的查询，比如获取指定字段值的记录。对模型类的query属性存储的Query对象调用过滤方法将返回一个更精确的Query对象(后面我们简称为查询对象)。因为每个过滤方法都会返回新的查询对象，所以过滤器可以叠加使用。在查询对象上调用前面介绍的查询方法，即可获得一个包含过滤后的记录的列表。
+
+![常用的SQLAlchemy过滤方法](/images/flask/w9.png)
+
+3. Update
+更新一条记录非常简单，直接赋值给模型类的字段属性就可以改变 字段值，然后调用commit()方法提交会话即可。
+只有要插入新的记录或要将现有的记录添加到会话中时才需要使用 add()方法，单纯要更新现有的记录时只需要直接为属性赋新值，然 后提交会话。
+
+4. Delete
+删除记录和添加记录很相似，不过要把add()方法换成delete() 方法，最后都需要调用commit()方法提交修改。
+
+#### 在视图函数里操作数据库
+
+在视图函数里操作数据库的方式和我们在`Python Shell中`的练习大致相同，只不过需要一些额外的工作。比如把查询结果作为参数传入模板渲染出来，或是获取表单的字段值作为提交到数据库的数据。在这一节，我们将把上一节学习的所有数据库操作知识运用到一个简单的笔记程序中。这个程序可以让你创建、编辑和删除笔记，并在主页列出所有保存后的笔记。
+
+1. Create
+
+```Python
+@app.route('/new', methods=['GET', 'POST'])
+def new_note():
+    form = NewNoteForm()
+    if form.validate_on_submit():
+        body = form.body.data
+        note = Note(body=body)
+        db.session.add(note)
+        db.session.commit()
+        flash('Your note is saved.')
+        return redirect(url_for('index'))
+    return render_template('new_note.html', form=form)
+```
+
+2. Read
+
+```Python
+@app.route('/note/all')
+@app.route('/')
+def index():
+    form = DeleteNoteForm()
+    notes = Note.query.all()
+    return render_template('index.html', notes=notes, form=form)
+```
+
+3. Update
+
+```Python
+@app.route('/edit/<int:note_id>', methods=['GET', 'POST'])
+def edit_note(note_id):
+    form = EditNoteForm()
+    note = Note.query.get(note_id)
+    if form.validate_on_submit():
+        note.body = form.body.data
+        db.session.commit()
+        flash('Your note is updated.')
+        return redirect(url_for('index'))
+    form.body.data = note.body  # preset form input's value
+    return render_template('edit_note.html', form=form)
+```
+
+4. Delete
+
+```Python
+@app.route('/delete/<int:note_id>', methods=['POST'])
+def delete_note(note_id):
+    form = DeleteNoteForm()
+    if form.validate_on_submit():
+        note = Note.query.get(note_id)
+        db.session.delete(note)
+        db.session.commit()
+        flash('Your note is deleted.')
+    else:
+        abort(400)
+    return redirect(url_for('index'))
+```
+
+### 定义关系
+
+在关系型数据库中，我们可以通过关系让不同表之间的字段建立联系。一般来说，定义关系需要两步，分别是创建外键和定义关系属性。在更复杂的多对多关系中，我们还需要定义关联表来管理关系。这一节我们会学习如何使用`SQLAlchemy`在模型之间建立几种基础的关系模 式。
+
+#### 配置Python Shell上下文
+
+在上面的许多操作中，每一次使用`flask shell`命令启动`Python Shell`后都要从app模块里导入db对象和相应的模型类。为什么不把它们自动 集成到`Python Shell`上下文里呢？就像Flask内置的app对象一样。这当然可以实现！我们可以使用`app.shell_context_processor`装饰器注册一个shell上下文处理函数。
+
+```py
+# handlers
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, Note=Note)
+```
+
+#### 一对多
+
+我们将以作者和文章来演示一对多关系：一个作者可以写作多篇文章。
+
+![一对多示意图](/images/flask/w10.png)
+
+Author类用来表示作者，Article类用来表示文章
+
+```py
+class Author(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    phone = db.Column(db.String(20))
+    articles = db.relationship('Article')  # collection
+
+
+class Article(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50), index=True)
+    body = db.Column(db.Text)
+    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
+```
+
+我们将在这两个模型之间建立一个简单的一对多关系，建立这个一对多关系的目的是在表示作者的Author类中添加一个关系属性articles，
+作为集合（collection）属性，当我们对特定的Author对象调用articles属性会返回所有相关的Article对象。我们会在下面介绍如何一步步定义这个一对多关系。
+
+1. 定义外键
+定义关系的第一步是创建外键。外键是（foreign key）用来在A表存储B表的主键值以便和B表建立联系的关系字段。因为外键只能存储单一数据（标量），所以外键总是在“多”这一侧定义，多篇文章属于同一个作者，所以我们需要为每篇文章添加外键存储作者的主键值以指向对应的作者。在Article模型中，我们定义一个author_id字段作为外键.
+
+2. 定义关系属性
+定义关系的第二步是使用关系函数定义关系属性。关系属性在关系 的出发侧定义，即一对多关系的“一”这一侧。一个作者拥有多篇文章， 在Author模型中，我们定义了一个articles属性来表示对应的多篇文章
+
+3. 建立关系
+建立关系有两种方式，第一种方式是为外键字段赋值，另一种方式是通过操作关系属性，将关系属性赋给实际的对象即可建立关系。
+
+```py
+# 1.外键字段赋值
+spam.author_id = 1
+db.session.commit()
+
+# 2.关系属性赋给实际的对象
+foo.articles.append(spam)
+foo.articles.append(ham)
+db.session.commit()
+```
+
 ## 第6章 电子邮件
 
 ## 总结
