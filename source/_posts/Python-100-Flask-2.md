@@ -529,6 +529,205 @@ foo.articles.append(ham)
 db.session.commit()
 ```
 
-## 第6章 电子邮件
+![常用的SQLAlchemy关系函数参数](/images/flask/w11.png)
+
+![常用的SQLAlchemy关系记录加载方式（lazy参数可选值）](/images/flask/w12.png)
+
+4. 建立双向关系
+我们在Author类中定义了集合关系属性articles，用来获取某个作者 拥有的多篇文章记录。在某些情况下，你也许希望能在Article类中定义 一个类似的author关系属性，当被调用时返回对应的作者记录，这类返 回单个值的关系属性被称为标量关系属性。而这种两侧都添加关系属性 获取对方记录的关系我们称之为双向关系（bidirectional relationship）。
+
+双向关系并不是必须的，但在某些情况下会非常方便。双向关系的 建立很简单，通过在关系的另一侧也创建一个relationship()函数，我 们就可以在两个表之间建立双向关系。
+
+```py
+# one to many + bidirectional relationship
+class Writer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), unique=True)
+    books = db.relationship('Book', back_populates='writer')
+
+
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), index=True)
+    writer_id = db.Column(db.Integer, db.ForeignKey('writer.id'))
+    writer = db.relationship('Writer', back_populates='books')
+```
+
+5. 使用backref简化关系定义
+在介绍关系函数的参数时，我们曾提到过，使用关系函数中的 backref参数可以简化双向关系的定义。以一对多关系为例，backref参数
+用来自动为关系另一侧添加关系属性，作为反向引用（back reference），赋予的值会作为关系另一侧的关系属性名称。比如，我们 在Author一侧的关系函数中将backref参数设为author，SQLAlchemy会自 动为Article类添加一个author属性。
+
+```py
+# 尽管使用backref非常方便，但通常来说“显式好过隐式”，所以我们 应该尽量使用back_populates定义双向关系。
+# 为了便于理解，将使用back_populates来建立双向关系。
+# one to many + bidirectional relationship + use backref to declare bidirectional relationship
+class Singer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    songs = db.relationship('Song', backref='singer')
+
+
+class Song(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), index=True)
+    singer_id = db.Column(db.Integer, db.ForeignKey('singer.id'))
+```
+
+在定义集合属性songs的关系函数中，我们将backref参数设为 singer，这会同时在Song类中添加了一个singer标量属性。这时我们仅需 要定义一个关系函数，虽然singer是一个“看不见的关系属性”，但在使用上和定义两个关系函数并使用back_populates参数的效果完全相同。需要注意的是，使用backref允许我们仅在关系一侧定义另一侧的关 系属性，但是在某些情况下，我们希望可以对在关系另一侧的关系属性进行设置，这时就需要使用backref()函数。backref()函数接收第一 个参数作为在关系另一侧添加的关系属性名，其他关键字参数会作为关 系另一侧关系函数的参数传入。比如，我们要在关系另一侧“看不见的 relationship()函数”中将uselist参数设为False。
+
+#### 多对一
+
+一对多关系反过来就是多对一关系，这两种关系模式分别从不同的视角出发。一个作者拥有多篇文章，反过来就是多篇文章属于同一个作者。为了便于区分，我们使用居民和城市来演示多对一关系：多个居民居住在同一个城市。
+
+```py
+# many to one
+class Citizen(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
+    city = db.relationship('City')
+
+
+class City(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), unique=True)
+```
+
+这时定义的city关系属性是一个标量属性（返回单一数据）。当Citizen.city被调用时，SQLAlchemy会根据外键字段city_id存储的值查找对应的City对象并返回，即居民记录对应的城市记录。
+当建立双向关系时，如果不使用backref，那么一对多和多对一关系模式在定义上完全相同，这时可以将一对多和多对一视为同一种关系模式。在后面我们通常都会为一对多或多对一建立双向关系，这时将弱化这两种关系的区别，一律称为一对多关系。
+
+#### 一对一
+
+我们将使用国家和首都来演示一对一关系：每个国家只有一个首 都；反过来说，一个城市也只能作为一个国家的首都。
+
+Country类表示国家，Capital类表示首都。建立一对一关系后，我们将在Country类中创建一个标量关系属性capital，调用它会获取单个Capital对象；我们还将在Capital类中创建一个标量关系属性country，调用它会获取单个的Country对象。
+
+一对一关系实际上是通过建立双向关系的一对多关系的基础上转化而来。我们要确保关系两侧的关系属性都是标量属性，都只返回单个值，所以要在定义集合属性的关系函数中将uselist参数设为False，这时一对多关系将被转换为一对一关系。
+
+```py
+# one to one
+class Country(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), unique=True)
+    capital = db.relationship('Capital', uselist=False)  # collection -> scalar
+
+
+class Capital(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), unique=True)
+    country_id = db.Column(db.Integer, db.ForeignKey('country.id'))
+    country = db.relationship('Country')  # scalar
+```
+
+#### 多对多
+
+我们将使用学生和老师来演示多对多关系：每个学生有多个老师，而每个老师有多个学生。
+
+Student类表示学生，Teacher类表示老师。在这两个模型之间建立多对多关系后，我们需要在Student类中添加一个集合关系属性teachers，调用它可以获取某个学生的多个老师，而不同的学生可以和同一个老师建立关系。
+
+在一对多关系中，我们可以在“多”这一侧添加外键指向“一”这一 侧，外键只能存储一个记录，但是在多对多关系中，每一个记录都可以与关系另一侧的多个记录建立关系，关系两侧的模型都需要存储一组外键。在SQLAlchemy中，要想表示多对多关系，除了关系两侧的模型外，我们还需要创建一个关联表（association table）。关联表不存储数据，只用来存储关系两侧模型的外键对应关系。
+
+```py
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    grade = db.Column(db.String(20))
+    teachers = db.relationship('Teacher',
+                               secondary=association_table,
+                               back_populates='students')  # collection
+
+
+class Teacher(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    office = db.Column(db.String(20))
+    students = db.relationship('Student',
+                               secondary=association_table,
+                               back_populates='teachers')  # collection
+```
+
+关联表使用db.Table类定义，传入的第一个参数是关联表的名称。我们在关联表中定义了两个外键字段：teacher_id字段存储Teacher类的主键，student_id存储Student类的主键。借助关联表这个中间人存储的外键对，我们可以把多对多关系分化成两个一对多关系，如图所示。
+
+![关联表示意图](/images/flask/w13.png)
+
+### 更新数据库表
+
+模型类（表）不是一成不变的，当你添加了新的模型类，或是在模 型类中添加了新的字段，甚至是修改了字段的名称或类型，都需要更新 表。在前面我们把数据库表类比成盛放货物的货架，这些货架是固定生 成的。当我们在操控程序（DBMS/ORM）上变更了货架的结构时，仓 库的货架也要根据变化相应进行调整。而且，当货架的结构产生变动 时，我们还需要考虑如何处理货架上的货物（数据）。
+
+#### 重新生成表
+
+重新调用create_all()方法并不会起到更新表或重新创建表的作 用。如果你并不在意表中的数据，最简单的方法是使用drop_all()方法删除表以及其中的数据，然后再使用create_all()方法重新创建
+
+#### 使用Flask-Migrate迁移数据库
+
+在开发时，以删除表再重建的方式更新数据库简单直接，但明显的缺陷是会丢掉数据库中的所有数据。在生产环境下，你绝对不会想让数 据库里的数据都被删除掉，这时你需要使用数据库迁移工具来完成这个工作。
+SQLAlchemy的开发者Michael Bayer写了一个数据库迁移工具 ——Alembic来帮助我们实现数据库的迁移，数据库迁移工具可以在不破坏数据的情况下更新数据库表的结构。蒸馏器（Alembic）是炼金术士最重要的工具，要学习SQL炼金术（SQLAlchemy），我们当然要掌 握蒸馏器的使用。
+
+我们实例化Flask-Migrate提供的Migrate类，进行初始化操作
+实例化Migrate类时，除了传入程序实例app，还需要传入实例化 Flask-SQLAlchemy提供的SQLAlchemy类创建的db对象作为第二个参数。
+
+```py
+from flask import Flask from flask_sqlalchemy
+import SQLAlchemy from flask_migrate
+import Migrate
+
+
+app = Flask(__name__)
+...
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+# 在db对象创建后调用
+```
+
+1. 创建迁移环境
+在开始迁移数据之前，需要先使用下面的命令创建一个迁移环境
+迁移环境只需要创建一次。这会在你的项目根目录下创建一个migrations文件夹，其中包含了自动生成的配置文件和迁移版本文件夹。
+
+```py
+flask db init
+```
+
+2. 生成迁移脚本
+
+使用migrate子命令可以自动生成迁移脚本：
+
+```shell
+$ flask db migrate -m "add note timestamp"
+...
+INFO [alembic.autogenerate.compare] Detected added column 'message.timestamp Generating /Path/to/your/database/migrations/versions/c52a02014635_add note_timestamp.py
+...
+done
+```
+
+这条命令可以简单理解为在flask里对数据库（db）进行迁移 （migrate）。-m选项用来添加迁移备注信息。从上面的输出信息我们可以看到，Alembic检测出了模型的变化：表note新添加了一个timestamp列，并且相应生成了一个迁移脚本 c52a02014635_add_note_timestamp.py，
+
+3. 更新数据库
+
+生成了迁移脚本后，使用upgrade子命令即可更新数据库
+
+```shell
+$ flask db upgrade
+...
+INFO [alembic.runtime.migration] Running upgrade -> c52a02014635, add note timestamp
+```
+
+如果还没有创建数据库和表，这个命令会自动创建；如果已经创建，则会在不损坏数据的前提下执行更新。
+
+#### 开发时是否需要迁移
+
+在生产环境下，当对数据库结构进行修改后，进行数据库迁移是必要的。因为你不想损坏任何数据，毕竟数据是无价的。在生成自动迁移脚本后，执行更新之前，对迁移脚本进行检查，甚至是使用备份的数据库进行迁移测试，都是有必要的。
+
+而在开发环境中，你可以按需要选择是否进行数据迁移。对于大多数程序来说，我们可以在开发时使用虚拟数据生成工具来生成虚拟数据，从而避免手动创建记录进行测试。这样每次更改表结构时，可以直接清除后重新生成，然后生成测试数据，这要比执行一次迁移简单很多（在后面我们甚至会学习通过一条命令完成所有工作），除非生成虚拟数据耗费的时间过长。
+
+另外，在本地开发时通常使用SQLite作为数据库引擎。SQLite不支持ALTER语句，而这正是迁移工具依赖的工作机制。也就是说，当SQLite数据库表的字段删除或修改后，我们没法直接使用迁移工具进行更新，你需要手动添加迁移代码来进行迁移。在开发中，修改和删除列是很常见的行为，手动操作迁移会花费太多的时间。
 
 ## 总结
+
+本来还有一章讲邮件的，但是邮件这部分太简单就不放在这里了。
+基础篇（二）主要是讲数据库的知识，简单了解在`Flask`应用中使用数据库的方法，但数据库的内容还有很多，这里只是一个简单的介绍。
+如果你想了解更多具体细节，[SQLAlchemy提供的入门教程](http://docs.sqlalchemy.org/en/latest/orm/tutorial.html)是个起步的好地方。
+另外，如果还不熟悉`SQL`，那么有必要去学习一下，掌握`SQL`可以让你更高效地使用`ORM`。
+
+这里也没有介绍在`Flask`中使用文档型`NoSQL`数据库的过程。
+以流行的[MongoDB](https://www.mongodb.com/)为例，通过使用ODM（Object Document Mapper，对象文档映射），比如[MongoEngine](http://mongoengine.org/)，或是对应的扩展[Flask- MongoEngine](https://github.com/MongoEngine/flask-mongoengine)，其操作数据库的方式和使用本章要介绍的`SQLAlchemy`基本相同。
+
