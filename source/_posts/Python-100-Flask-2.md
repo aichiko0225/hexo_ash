@@ -51,7 +51,7 @@ class LoginForm(FlaskForm):
 ![常用的WTForms验证器](/images/flask/w3.png)
 
 当使用`Flask-WTF`定义表单时，我们仍然使用`WTForms`提供的字段类和验证器，创建的方式也完全相同，只不过表单类要继承`Flask-WTF`提供的`FlaskForm`类。`FlaskForm`类继承自`Form`类，进行了一些设置，并附加了一些辅助方法，以便与`Flask`集成。
-
+<!-- more -->
 #### 输出HTML代码
 
 以我们使用WTForms创建的LoginForm为例，实例化表单类，然后将实例属性转换成字符串或直接调用就可以获取表单字段对应的HTML代码：
