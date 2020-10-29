@@ -2,7 +2,7 @@
 title: macbook-键盘连击问题
 categories: 工作日常
 date: 2020.09.11
-updated: 2020.09.11
+updated: 2020.10.29
 ---
 
 最近一段时间，我的笔记本（17年款 macbook pro 13寸）经常出现键盘连击问题。
@@ -60,3 +60,11 @@ Apple made it difficult to replace only the keyboard and it costs hundreds of do
 4. 这一次将 Mac 笔记本电脑向左侧旋转，然后重复以上操作。
 
 具体方法还是就要查看苹果的官方帮助文档。
+
+
+## 更新后续的使用情况
+
+![](/images/other_1.png)
+![](/images/other_2.png)
+
+总的来说还是**Unshaky**还是很好用的，可以解决大部分的键盘连击问题，但是有时候键盘会有3次或者以上的连击，**Unshaky**没法很完美的解决这个问题。
