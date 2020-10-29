@@ -61,10 +61,9 @@ Apple made it difficult to replace only the keyboard and it costs hundreds of do
 
 具体方法还是就要查看苹果的官方帮助文档。
 
-
 ## 更新后续的使用情况
+
+总的来说还是**Unshaky**还是很好用的，可以解决大部分的键盘连击问题，但是有时候键盘会有3次或者以上的连击，**Unshaky**没法很完美的解决这个问题。
 
 ![](/images/other_1.png)
 ![](/images/other_2.png)
-
-总的来说还是**Unshaky**还是很好用的，可以解决大部分的键盘连击问题，但是有时候键盘会有3次或者以上的连击，**Unshaky**没法很完美的解决这个问题。
