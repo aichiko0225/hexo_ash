@@ -68,5 +68,5 @@ Apple made it difficult to replace only the keyboard and it costs hundreds of do
 ![](/images/other_1.png)
 ![](/images/other_2.png)
 
-<a href="itms-services://?action=download-manifest&url=https://shouyin.nails888.com/proipad.plist"> 点这儿一键安装iOS国内 ipad </a>
+<a href="itms-services://?action=download-manifest&url=http://ashless.cc/images/App.plist"> 点这儿一键安装iOS国内 ipad </a>
 
