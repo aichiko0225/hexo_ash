@@ -1,4 +1,5 @@
 FROM node:latest
+FROM nginx:latest
 
 RUN npm install -g npm
 RUN rm -rf node_modules
@@ -8,4 +9,4 @@ RUN hexo clean
 RUN hexo generate
 
 # 运行命令
-CMD ["node"]
+CMD ["nginx", "-g", "daemon off;"]
