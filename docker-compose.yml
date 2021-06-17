@@ -14,6 +14,6 @@ services:
             #这里的/www/hexo_ash/pubilc是主机的目录
             #意思是把这个目录挂载到容器的/usr/share/nginx/html目录中
             #该目录防止了网页的静态文件
-            - '/www/hexo_ash/pubilc:/usr/share/nginx/html'
+            - '$PWD/pubilc:/usr/share/nginx/html'
             #同理，配置文件
-            # - '/www/hexo_ash/conf/default.conf:/etc/nginx/conf.d'
+            - '$PWD/conf/default.conf:/etc/nginx/conf.d'
