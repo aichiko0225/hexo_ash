@@ -1,4 +1,3 @@
-FROM alpine:3.11
 FROM node:latest
 
 COPY package*.json ./
@@ -11,17 +10,15 @@ RUN yarn global add hexo-cli
 
 RUN yarn install
 
-COPY . .
-
 # RUN hexo clean
 # RUN hexo generate
 ENTRYPOINT ["hexo", "clean"]
 
 CMD ["hexo", "generate"]
 
+COPY . .
+
 FROM nginx:latest
-
-
 
 # 运行命令
 CMD ["nginx", "-g", "daemon off;"]
