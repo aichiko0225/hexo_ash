@@ -18,7 +18,7 @@ CMD ["hexo", "generate"]
 
 WORKDIR /www/hexo_ash
 
-COPY . .
+COPY . /www/hexo_ash/
 
 FROM nginx:latest
 
