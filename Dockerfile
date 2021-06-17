@@ -16,7 +16,9 @@ ENTRYPOINT ["hexo", "clean"]
 
 CMD ["hexo", "generate"]
 
-COPY . .
+WORKDIR /www/hexo_ash
+
+COPY . /www/hexo_ash/
 
 FROM nginx:latest
 
