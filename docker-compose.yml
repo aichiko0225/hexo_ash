@@ -16,4 +16,4 @@ services:
             #该目录防止了网页的静态文件
             - '/www/hexo_ash/pubilc:/usr/share/nginx/html'
             #同理，配置文件
-            - '/www/hexo_ash/conf/default.conf:/etc/nginx/nginx.conf'
+            - '/www/hexo_ash/conf/default.conf:/etc/nginx/conf.d'
