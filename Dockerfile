@@ -1,5 +1,6 @@
 FROM node:latest
 
+RUN npm install -g npm
 RUN rm -rf node_modules
 RUN npm install
 
