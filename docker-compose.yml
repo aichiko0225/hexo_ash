@@ -1,7 +1,7 @@
 version: '3'
 services: 
     hexo_blog:
-        build: './dockerfiles'
+        build: .
     nginx:
         image: nginx:latest
         container_name: nginx
@@ -16,4 +16,4 @@ services:
             #该目录防止了网页的静态文件
             - '/www/hexo_ash/pubilc:/usr/share/nginx/html'
             #同理，配置文件
-            - '/www/hexo_ash/dockerfiles/conf:/etc/nginx/nginx.conf'
+            - '/www/hexo_ash/conf:/etc/nginx/nginx.conf'
