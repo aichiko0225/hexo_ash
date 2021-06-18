@@ -1,25 +1,3 @@
-FROM node:latest
-
-COPY package*.json ./
-
-# RUN npm install -g npm
-RUN rm -rf node_modules
-
-# 安装hexo脚手架
-RUN yarn global add hexo-cli
-
-RUN yarn install
-
-# RUN hexo clean
-# RUN hexo generate
-ENTRYPOINT ["hexo", "clean"]
-
-CMD ["hexo", "generate"]
-
-WORKDIR /www/hexo_ash
-
-COPY . /www/hexo_ash/
-
 FROM nginx:latest
 
 ADD ./conf/nginx.conf /etc/nginx/nginx.conf

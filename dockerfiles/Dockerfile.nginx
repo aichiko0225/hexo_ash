@@ -1,6 +1,0 @@
-FROM nginx:latest
-
-# 维护者信息
-MAINTAINER ash66 <aichiko66@163.com>
-
-CMD ["nginx", "-g", "daemon off;"]

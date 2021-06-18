@@ -1,11 +1,8 @@
 version: '3'
 services: 
-    hexo_blog:
-        build: .
     nginx:
         image: nginx:latest
         container_name: nginx
-        # build: ./dockerfiles/Dockerfile.nginx
         restart: 'always'
         ports: 
             - '80:80'
@@ -14,6 +11,8 @@ services:
             #这里的/www/hexo_ash/pubilc是主机的目录
             #意思是把这个目录挂载到容器的/usr/share/nginx/html目录中
             #该目录防止了网页的静态文件
-            - '$PWD/pubilc:/usr/share/nginx/html'
+            - '$PWD/public:/usr/share/nginx/html'
             #同理，配置文件
-            # - '$PWD/conf/default.conf:/etc/nginx/nginx.conf'
+            # - '$PWD/conf:/etc/nginx/conf.d'
+    # hexo_blog:
+    #     build: .
