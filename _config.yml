@@ -148,6 +148,7 @@ leancloud_counter_security:
 ## https://github.com/xiazeyu/live2d-widget.js
 ## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
 live2d:
+  enable: false
   model:
     scale: 1
     hHeadPos: 0.5
