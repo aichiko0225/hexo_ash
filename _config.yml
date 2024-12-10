@@ -101,4 +101,73 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  - type: 'git'
+    repo: 'https://github.com/aichiko0225/memoirs'
+
+categories:
+  - iOS
+  - iOS逆向
+  - Python
+  - JavaScript
+  - React
+  - Java
+  - 武汉
+  - 随便写写
+  - 关于世界的一切
+  - 工作日常
+
+tags:
+  - iOS
+  - Swift
+  - Flutter
+  - Web
+  - 逆向
+  - 基础知识
+  - 杂谈
+  - Runtime
+  - Flask
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+
+leancloud_counter_security:
+  enable_sync: true
+  app_id: yRQeAmJB0UkITMWro77cGqjX-9Nh9j0Va
+  app_key: OxhbERgDrB6ImE5KHNuq0Az3
+  username: aichiko66@163.com # Will be asked while deploying if is left blank
+  password: Xucheng225917
+# Live2D
+## https://github.com/xiazeyu/live2d-widget.js
+## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
+live2d:
+  enable: true
+  model:
+    scale: 1
+    hHeadPos: 0.5
+    vHeadPos: 0.618
+    use: live2d-widget-model-epsilon2_1 # 下载的动画模型名称
+  display:
+    superSample: 2
+    width: 250
+    height: 500
+    position: right # 模型在网页显示位置
+    hOffset: 50
+    vOffset: 50
+  mobile:
+    show: false  # 移动设备是否显示
+    scale: 0.2
+  react:
+    opacityDefault: 0.7
+    opacityOnHover: 0.2
+  dialog:
+    enable: true
+    hitokoto: true
