@@ -9,4 +9,19 @@ footer:
     github:
       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
       url: https://github.com/aichiko0225
-    
+  content: | # 支持 Markdown 格式
+    本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
+
+menubar:
+  columns: 4
+  items:
+    - id: post
+      theme: '#1BCDFC'
+      icon: solar:documents-bold-duotone
+      title: 博客
+      url: /
+    - id: aboutMe
+      theme: '#F44336'
+      icon: solar:chat-square-like-bold-duotone
+      title: AboutMe
+      url: /about/me
