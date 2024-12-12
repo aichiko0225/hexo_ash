@@ -7,7 +7,7 @@ title: ash
 subtitle: '我只是一个影子，虽然我发着光。。。'
 description: '我只是一个影子，虽然我发着光。。。'
 keywords:
-author: ash
+author: ash66
 language: zh-CN
 timezone: Asia/Shanghai
 favicon: /favicon.png
@@ -15,7 +15,8 @@ favicon: /favicon.png
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://aichiko0225.github.com/memoirs
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
+permalink: :year:month:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks

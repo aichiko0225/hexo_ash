@@ -1,0 +1,12 @@
+logo:
+  avatar: '[/memoirs/images/image1.jpeg](/about/)'
+
+article:
+  share: [wechat, weibo, email, link]
+
+footer:
+  social:
+    github:
+      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
+      url: https://github.com/aichiko0225
+    
