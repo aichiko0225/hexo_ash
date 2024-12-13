@@ -1,7 +1,8 @@
 ---
 title: ObjectMapper实践（一）
 date: 2018-08-03 22:09
-categories: iOS
+categories: IT技术
+tags: iOS
 ---
 # 前言
 

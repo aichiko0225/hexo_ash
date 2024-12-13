@@ -1,7 +1,7 @@
 ---
 title: 逆向工程进阶
 date: 2020-02-17 15:16:48
-categories: 逆向
+categories: IT技术
 tags:
 - 逆向
 - iOS

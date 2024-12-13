@@ -107,12 +107,7 @@ deploy:
     repo: 'https://github.com/aichiko0225/memoirs'
 
 categories:
-  - iOS
-  - iOS逆向
-  - Python
-  - JavaScript
-  - React
-  - Java
+  - IT技术
   - 武汉
   - 关于世界的一切
   - 工作日常
@@ -124,12 +119,17 @@ tags:
   - Swift
   - Flutter
   - Web
+  - React
+  - JavaScript
+  - Runtime
+  - Flask
+  - Python
+  - Java
   - 逆向
   - 基础知识
   - 杂谈
-  - Runtime
-  - Flask
   - 随便写写
+  - 游记
 
 search:
   path: search.xml

@@ -1,0 +1,8 @@
+name: 笔记本
+title: 我的笔记本
+logo: 
+  icon: /memoirs/images/liu.jpeg
+  title: '[{config.title}](/)'
+  subtitle: '我的笔记本'
+
+base_dir: /notes/

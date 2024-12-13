@@ -1,7 +1,8 @@
 ---
 title: Python-100天(一)
 date: 2020-03-05 23:54:55
-categories: Python
+categories: IT技术
+tags: Python
 ---
 
 之前`Python`就已经学过了，`Flask`也玩的一溜一溜的。

@@ -1,7 +1,8 @@
 ---
 title: 关于iOS 多线程的问题
 date: 2016-11-18
-categories: iOS
+categories: IT技术
+tags: iOS
 ---
 
 # 写在前面的话

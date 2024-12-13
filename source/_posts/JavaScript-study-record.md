@@ -1,9 +1,10 @@
 ---
 title: JavaScript 温习记录（一）
 date: 2020-10-30
-categories: JavaScript
+categories: IT技术
 tags: 
 - Web
+- JavaScript
 - 基础知识
 ---
 

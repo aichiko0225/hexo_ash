@@ -1,7 +1,7 @@
 ---
 title: 逆向工程基础
 date: 2020-02-12 21:59:08
-categories: 逆向
+categories: IT技术
 tags: 
 - 逆向
 - iOS

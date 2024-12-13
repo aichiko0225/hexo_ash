@@ -1,9 +1,10 @@
 ---
 title: React 技术栈（一）
 date: 2021-06-19
-categories: JavaScript
+categories: IT技术
 tags: 
 - React
+- JavaScript
 - 基础知识
 ---
 

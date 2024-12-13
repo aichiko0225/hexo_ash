@@ -1,7 +1,8 @@
 ---
 title: Python-100天(二)-Python语言进阶
 date: 2020-03-10 21:51:59
-categories: Python
+categories: IT技术
+tags: Python
 ---
 
 ### 数据结构和算法

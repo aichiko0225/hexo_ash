@@ -12,6 +12,14 @@ footer:
   content: | # 支持 Markdown 格式
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
 
+comments:
+  service: beaudar
+  beaudar:
+    repo: aichiko0225/blog-comments
+  # service: utterances
+  # utterances:
+  #   repo: aichiko0225/blog-comments
+
 menubar:
   columns: 4
   items:
@@ -20,6 +28,11 @@ menubar:
       icon: solar:documents-bold-duotone
       title: 博客
       url: /
+    - id: notes
+      theme: '#3DC550'
+      icon: solar:notebook-bookmark-bold-duotone
+      title: 笔记本
+      url: /notes/
     - id: aboutMe
       theme: '#F44336'
       icon: solar:chat-square-like-bold-duotone
