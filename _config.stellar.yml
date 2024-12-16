@@ -13,12 +13,12 @@ footer:
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
 
 comments:
-  service: beaudar
-  beaudar:
-    repo: aichiko0225/blog-comments
-  # service: utterances
-  # utterances:
+  # service: beaudar
+  # beaudar:
   #   repo: aichiko0225/blog-comments
+  service: utterances
+  utterances:
+    repo: aichiko0225/blog-comments
 
 menubar:
   columns: 4
