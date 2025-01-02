@@ -1,0 +1,172 @@
+{
+  "data": [
+    {
+      "_id": "67693f3c6b79c1e0b57ea241",
+      "ip": "109.206.203.79",
+      "anonymityLevel": "transparent",
+      "asn": "AS41966",
+      "city": "Warsaw",
+      "country": "PL",
+      "created_at": "2024-12-23T10:45:16.260Z",
+      "google": false,
+      "isp": "Skynet sp. z o.o.",
+      "lastChecked": 1735204260,
+      "latency": 30.279,
+      "org": "Skynet Sp. J. Krzysztof Skorupski, Filip Bacciarelli",
+      "port": "3128",
+      "protocols": [
+        "http"
+      ],
+      "speed": 704,
+      "upTime": 100,
+      "upTimeSuccessCount": 22,
+      "upTimeTryCount": 22,
+      "updated_at": "2024-12-26T09:11:00.355Z",
+      "responseTime": 1280
+    },
+    {
+      "_id": "667287086fb9cbee371871f5",
+      "ip": "176.105.220.74",
+      "anonymityLevel": "transparent",
+      "asn": "AS24812",
+      "country": "UA",
+      "created_at": "2024-06-19T07:21:44.692Z",
+      "google": false,
+      "lastChecked": 1735203964,
+      "latency": 56.636,
+      "org": "NPK Home-Net Ltd",
+      "port": "3129",
+      "protocols": [
+        "http"
+      ],
+      "speed": 693,
+      "upTime": 99.4949494949495,
+      "upTimeSuccessCount": 1379,
+      "upTimeTryCount": 1386,
+      "updated_at": "2024-12-26T09:06:04.164Z",
+      "city": "Kremenchug",
+      "isp": "NPK Home-Net Ltd.",
+      "responseTime": 3788
+    },
+    {
+      "_id": "673692066b79c1e0b5df1a1e",
+      "ip": "49.51.244.112",
+      "anonymityLevel": "anonymous",
+      "asn": null,
+      "city": "Santa Clara",
+      "country": "US",
+      "created_at": "2024-11-15T00:12:54.834Z",
+      "google": false,
+      "isp": "OPHL",
+      "lastChecked": 1735200546,
+      "latency": 151.184,
+      "org": null,
+      "port": "8888",
+      "protocols": [
+        "http"
+      ],
+      "speed": 615,
+      "upTime": 99.6845425867508,
+      "upTimeSuccessCount": 316,
+      "upTimeTryCount": 317,
+      "updated_at": "2024-12-26T08:09:06.558Z",
+      "responseTime": 510
+    },
+    {
+      "_id": "675f023f6b79c1e0b525386a",
+      "ip": "103.76.201.126",
+      "anonymityLevel": "transparent",
+      "asn": "AS135480",
+      "city": "Bekasi",
+      "country": "ID",
+      "created_at": "2024-12-15T16:22:23.918Z",
+      "google": false,
+      "isp": "PT. Arjuna Global Teknologi Indonesia",
+      "lastChecked": 1735201426,
+      "latency": 185.3,
+      "org": "Agti JKT",
+      "port": "8080",
+      "protocols": [
+        "http"
+      ],
+      "speed": 504,
+      "upTime": 98.7179487179487,
+      "upTimeSuccessCount": 77,
+      "upTimeTryCount": 78,
+      "updated_at": "2024-12-26T08:23:46.155Z",
+      "responseTime": 397
+    },
+    {
+      "_id": "66a50ef56b79c1e0b5c60f65",
+      "ip": "193.138.178.6",
+      "anonymityLevel": "transparent",
+      "asn": "AS34241",
+      "city": "Chelyabinsk",
+      "country": "RU",
+      "created_at": "2024-07-27T15:15:01.642Z",
+      "google": false,
+      "isp": "New Communication Technologies",
+      "lastChecked": 1735205835,
+      "latency": 80.725,
+      "org": "OOO New Communication Technologies",
+      "port": "8282",
+      "protocols": [
+        "http"
+      ],
+      "speed": 503,
+      "upTime": 97.6639712488769,
+      "upTimeSuccessCount": 1087,
+      "upTimeTryCount": 1113,
+      "updated_at": "2024-12-26T09:37:15.071Z",
+      "responseTime": 1700
+    },
+    {
+      "_id": "660d24a86fb9cbee37988249",
+      "ip": "207.180.234.234",
+      "anonymityLevel": "transparent",
+      "asn": "AS51167",
+      "city": "Nuremberg",
+      "country": "DE",
+      "created_at": "2024-04-03T09:43:04.905Z",
+      "google": false,
+      "isp": "Contabo GmbH",
+      "lastChecked": 1735201068,
+      "latency": 8.1,
+      "org": "Contabo GmbH",
+      "port": "3128",
+      "protocols": [
+        "http"
+      ],
+      "speed": 494,
+      "upTime": 99.5386981035367,
+      "upTimeSuccessCount": 1942,
+      "upTimeTryCount": 1951,
+      "updated_at": "2024-12-26T08:17:48.362Z",
+      "responseTime": 882
+    },
+    {
+      "_id": "6704f5b36b79c1e0b571da27",
+      "ip": "49.4.117.146",
+      "anonymityLevel": "transparent",
+      "asn": "AS55990",
+      "city": "Beijing",
+      "country": "CN",
+      "created_at": "2024-10-08T09:04:51.107Z",
+      "google": false,
+      "isp": "Huawei Cloud Service data center",
+      "lastChecked": 1735205871,
+      "latency": 161.712,
+      "org": "Huawei Public Cloud Service",
+      "port": "3128",
+      "protocols": [
+        "http"
+      ],
+      "speed": 403,
+      "upTime": 98.989898989899,
+      "upTimeSuccessCount": 588,
+      "upTimeTryCount": 594,
+      "updated_at": "2024-12-26T09:37:51.271Z",
+      "responseTime": 383
+    }
+  ]
+}
