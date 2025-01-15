@@ -13,12 +13,17 @@ footer:
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
 
 comments:
-  # service: beaudar
-  # beaudar:
+  # service: utterances
+  # utterances:
   #   repo: aichiko0225/blog-comments
-  service: utterances
-  utterances:
-    repo: aichiko0225/blog-comments
+  service: giscus
+  giscus:
+    src: https://giscus.app/client.js
+    data-repo: aichiko0225/blog-comments
+    data-repo-id: R_kgDONc43PQ
+    data-category: announcements
+    data-category-id: DIC_kwDONc43Pc4Cl_YM
+    data-lang: zh-CN
 
 menubar:
   columns: 4
