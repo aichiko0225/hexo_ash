@@ -4,6 +4,21 @@ logo:
 article:
   share: [wechat, weibo, email, link]
 
+comments:
+  service: beaudar
+  comment_title: 来都来了，聊两句吧
+  lazyload: false
+  beaudar:
+    repo: aichiko0225/blog-comments
+    issue-term: pathname
+    theme: preferred-color-scheme
+    label: comments
+  utterances:
+    repo: aichiko0225/blog-comments
+    issue-term: pathname
+    theme: preferred-color-scheme
+    label: comments
+
 footer:
   social:
     github:

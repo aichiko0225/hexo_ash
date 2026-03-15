@@ -6,3 +6,12 @@ logo:
   subtitle: '我的笔记本'
 
 base_dir: /notes/
+
+share: true
+
+tree:
+  前端笔记:
+    - react-hooks
+    - vue3-composition-api
+  移动端笔记:
+    - flutter-state-management
