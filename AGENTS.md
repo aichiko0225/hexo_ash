@@ -20,12 +20,16 @@ Working rule:
 ## 2) Build, Run, Lint, Test
 Run from repository root unless noted.
 
+Package manager rule:
+- Use `yarn` for dependency and script management in this repo.
+- Do not use `npm` commands for install/run workflows unless explicitly requested.
+
 ### 2.1 Build and local preview
 ```bash
-npm run clean      # hexo clean
-npm run build      # hexo generate
-npm run server     # hexo server
-npm run deploy     # hexo deploy
+yarn clean      # hexo clean
+yarn build      # hexo generate
+yarn server     # hexo server
+yarn deploy     # hexo deploy
 ```
 
 Deployment note:
@@ -33,8 +37,8 @@ Deployment note:
 
 Common flow:
 ```bash
-npm run clean && npm run build
-npm run server
+yarn clean && yarn build
+yarn server
 ```
 
 ### 2.2 Linting status
@@ -46,7 +50,7 @@ npm run server
 - Root project has no automated test script.
 - Theme has a smoke command only:
 ```bash
-npm --prefix themes/stellar test
+yarn --cwd themes/stellar test
 ```
 - Current theme test script is `echo test` (not a real test suite).
 
@@ -56,14 +60,14 @@ Current state:
 
 If tests are introduced later, standardize on:
 ```bash
-npm run test -- <file-or-pattern>
+yarn test <file-or-pattern>
 ```
 
 Until then, validate by targeted rebuild/manual checks of affected routes.
 
 ## 3) Minimum Validation by Change Type
-- Most edits: `npm run build`.
-- Template/JS/CSS/theme behavior edits: `npm run server` and open affected pages.
+- Most edits: `yarn build`.
+- Template/JS/CSS/theme behavior edits: `yarn server` and open affected pages.
 - Config/content edits: verify front matter parses and generated links/pages render.
 - Avoid claiming "tests passed" unless a real test runner was executed.
 
@@ -145,6 +149,6 @@ If these files are added later, merge their guidance into this file and treat th
 ## 7) Recommended Agent Workflow
 1. Read relevant config/content/theme files before editing.
 2. Make minimal localized changes.
-3. Run `npm run build`.
-4. For UI/template changes, run `npm run server` and verify pages manually.
+3. Run `yarn build`.
+4. For UI/template changes, run `yarn server` and verify pages manually.
 5. Report exactly what changed and how it was validated.
