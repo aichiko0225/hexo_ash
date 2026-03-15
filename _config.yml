@@ -151,12 +151,6 @@ symbols_count_time:
   total_symbols: true
   total_time: true
 
-leancloud_counter_security:
-  enable_sync: true
-  app_id: yRQeAmJB0UkITMWro77cGqjX-9Nh9j0Va
-  app_key: OxhbERgDrB6ImE5KHNuq0Az3
-  username: aichiko66@163.com # Will be asked while deploying if is left blank
-  password: Xucheng225917
 # Live2D
 ## https://github.com/xiazeyu/live2d-widget.js
 ## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
