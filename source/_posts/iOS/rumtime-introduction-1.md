@@ -1,11 +1,11 @@
 ---
 title: Runtime介绍(一)
 date: 2020-02-08 22:39:02
-categories: IT技术
+categories: 技术
 tags:
  - iOS 
  - Runtime 
- - 基础知识
+ - Fundamentals
 ---
 
 ## Runtime简介
@@ -226,4 +226,3 @@ objc_property_t protocol_getProperty（Protocol * proto，const char * name，BO
 ```
 
 ## 未完待续
-

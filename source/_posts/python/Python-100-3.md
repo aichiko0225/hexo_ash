@@ -1,7 +1,7 @@
 ---
 title: Python-100天(三)-数据库基础和进阶
 date: 2020-03-12 20:14:23
-categories: IT技术
+categories: 技术
 tags: Python
 ---
 

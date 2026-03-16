@@ -1,8 +1,10 @@
 ---
 title: 2020-01-23 武汉封城第一天
 date: 2020-01-23
-categories: 武汉
-tags: 杂谈
+categories: 生活记录
+tags:
+- Wuhan
+- Essay
 ---
 
 坐标武汉。

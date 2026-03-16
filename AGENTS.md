@@ -1,30 +1,33 @@
 # AGENTS.md
-Guidance for agents working in `/Users/ash/Desktop/Hexo/hexo_ash`.
+Guidance for coding agents working in `/Users/ash/Desktop/Hexo/hexo_ash`.
 
-## 1) Repository Snapshot
-- Stack: Hexo `7.3.0` site.
-- Theme: `themes/stellar` (git submodule from `xaoxuu/hexo-theme-stellar`).
-- This is primarily a blog project; treat root Python files as historical/experimental unless a task explicitly targets them.
-- Author-owned work is mainly in:
-  - `source/` (posts/pages)
+## 1) Repository Overview
+- Project type: Hexo blog/site.
+- Root Hexo version: `8.1.1` from `package.json`.
+- Theme: `themes/stellar` (`1.33.1`), tracked as a git submodule.
+- Primary author-owned areas:
+  - `source/` for posts, notes, and pages
   - `_config.yml`
   - `_config.stellar.yml`
-- Generated/deploy artifacts:
-  - `public/` (generated)
-  - `.deploy_git/` (deploy state)
+- Generated or deployment-managed areas:
+  - `public/`
+  - `.deploy_git/`
+- Root Python files are historical/experimental; ignore them unless a task explicitly targets them.
 
-Working rule:
-- Prefer root config/content edits over theme internals.
-- Edit `themes/stellar/` only when config/override cannot solve the task.
+## 2) Working Priorities
+- Prefer editing content and root config over modifying theme internals.
+- Edit `themes/stellar/` only when the change cannot be achieved via Hexo config, Stellar config, content front matter, injected scripts, or CSS overrides.
+- Avoid manual edits in generated output.
+- Make minimal, localized changes; do not do repo-wide cleanup unless requested.
 
-## 2) Build, Run, Lint, Test
-Run from repository root unless noted.
+## 3) Package Manager And Commands
+Run commands from the repository root unless noted.
 
 Package manager rule:
-- Use `yarn` for dependency and script management in this repo.
-- Do not use `npm` commands for install/run workflows unless explicitly requested.
+- Use `yarn` for install and script execution.
+- Do not switch to `npm` unless the user explicitly asks.
 
-### 2.1 Build and local preview
+Root scripts:
 ```bash
 yarn clean      # hexo clean
 yarn build      # hexo generate
@@ -32,123 +35,157 @@ yarn server     # hexo server
 yarn deploy     # hexo deploy
 ```
 
-Deployment note:
-- Root `_config.yml` is configured to deploy via git to the memoirs repository (see deploy config around `_config.yml:105`).
-
-Common flow:
+Typical local workflow:
 ```bash
 yarn clean && yarn build
 yarn server
 ```
 
-### 2.2 Linting status
-- No root `lint` script found.
-- No ESLint/Prettier/Stylelint/Markdownlint config found.
-- Do not assume lint tooling exists.
+Deployment note:
+- `yarn deploy` uses the git deploy target configured in `_config.yml`.
+- Treat deployment as a user-facing action; do not run it unless requested.
 
-### 2.3 Tests status
-- Root project has no automated test script.
-- Theme has a smoke command only:
+## 4) Linting And Tests
+Current repo state:
+- No root `lint` script exists.
+- No ESLint, Prettier, Stylelint, or Markdownlint config was found.
+- No root automated test runner exists.
+
+Theme-only test command:
 ```bash
 yarn --cwd themes/stellar test
 ```
-- Current theme test script is `echo test` (not a real test suite).
 
-### 2.4 Running a single test (important)
-Current state:
-- No test runner is configured, so there is no true single-test command.
+Important caveat:
+- The theme `test` script is currently `echo test`; it is not a real test suite.
 
-If tests are introduced later, standardize on:
+### Running A Single Test
+- There is no real single-test command in the current repo.
+- If tests are added later, standardize on:
 ```bash
 yarn test <file-or-pattern>
 ```
+- Until then, validate changes with targeted builds and manual checks of affected pages/routes.
 
-Until then, validate by targeted rebuild/manual checks of affected routes.
+## 5) Minimum Validation Expectations
+- Most content/config/doc changes: run `yarn build`.
+- Theme template, JS, Stylus, or injected script changes: run `yarn build`, then `yarn server` and manually verify the affected page.
+- Taxonomy or navigation changes: confirm categories, tags, menus, and generated URLs render correctly.
+- Do not claim tests passed unless you actually ran a real test runner.
 
-## 3) Minimum Validation by Change Type
-- Most edits: `yarn build`.
-- Template/JS/CSS/theme behavior edits: `yarn server` and open affected pages.
-- Config/content edits: verify front matter parses and generated links/pages render.
-- Avoid claiming "tests passed" unless a real test runner was executed.
+## 6) Repository Structure Notes
+- `source/_posts/`: long-form blog posts.
+- `source/notes/`: notebook/wiki-like notes.
+- `source/about/`: about pages.
+- `themes/stellar/layout/`: EJS templates.
+- `themes/stellar/scripts/`: Hexo helpers, generators, filters, and commands.
+- `themes/stellar/source/css/`: Stylus styles.
 
-## 4) Code Style and Conventions
-Follow existing file-local style; avoid reformat-only churn.
+## 7) Front Matter And Content Conventions
+Use YAML front matter with `---` delimiters.
 
-### 4.1 JavaScript (theme scripts + browser JS)
-- Node-side theme scripts use CommonJS (`require`, `module.exports`).
-- Keep `'use strict'` at top of Node-side script files.
-- Indent with 2 spaces.
-- Prefer `const`/`let`; avoid introducing new `var` unless matching nearby code.
-- Use descriptive `camelCase` naming for vars/functions.
-- Keep helpers small and composable.
-- Use optional chaining where source data may be absent.
-- Prefer `===`/`!==` for new logic unless loose checks are intentional.
-- Follow local string/semicolon convention per file; do not normalize whole files.
+Common fields:
+- `title`
+- `date`
+- `updated`
+- `categories`
+- `tags`
+- optional theme fields such as `banner`, `cover`, `rightbar`, `type`, `wiki`
 
-### 4.2 Import / require organization
-- Keep `require(...)` declarations near file top.
-- Group builtin/dependency imports before local utilities.
-- Keep import order stable; avoid cosmetic reorder-only diffs.
+Category policy for this repo:
+- Categories stay in Chinese.
+- Current stable categories are:
+  - `技术`
+  - `AI与工具`
+  - `项目实践`
+  - `阅读与思考`
+  - `关于世界的一切`
+  - `生活记录`
+  - `跑步`
 
-### 4.3 EJS templates
-- Existing pattern is: compute local vars, then assemble output/partials.
-- Prefer explicit template variable names (`page_type`, `article_type`, etc.).
-- Reuse existing partials in `themes/stellar/layout/_partial/`.
-- Keep conditionals readable; avoid deep nesting when possible.
+Tag policy for this repo:
+- Tags should be English-only.
+- Prefer concise, searchable topic tags such as `React`, `Python`, `Tooling`, `Workflow`, `Reading`, `Essay`.
+- Avoid adding new Chinese tags unless the user explicitly requests an exception.
 
-### 4.4 Stylus / CSS
-- Follow Stylus layout in `themes/stellar/source/css/`.
-- Prefer config variable/customization via `_custom.styl` first.
-- Keep selector naming and nesting consistent with nearby files.
-- Avoid broad, global selector changes unless required.
+Markdown/content style:
+- Keep headings ordered logically.
+- Keep prose and lists readable; avoid unnecessary HTML if Markdown works.
+- Preserve existing author voice in posts; do not flatten personal writing into generic documentation tone.
+- For notes, keep content compact and reference-oriented.
 
-### 4.5 YAML configs
+## 8) JavaScript Style
+Observed style in theme scripts:
+- Plain JavaScript only; no TypeScript setup exists.
+- Node-side scripts use CommonJS.
+- Keep `'use strict';` in Node-side theme files.
 - Use 2-space indentation.
-- Keep key names compatible with Hexo/Stellar expectations.
-- Do not rename existing keys without confirming theme support.
-- Preserve quoting style used in surrounding config.
+- Prefer `const` and `let`.
+- Use descriptive `camelCase` names for variables and functions.
+- Keep helpers small and composable.
+- Prefer straightforward logic over abstraction for one-off helpers.
+- Follow the local file's semicolon and quote style; do not normalize entire files.
 
-### 4.6 Markdown content
-- Use YAML front matter (`---`) at top.
-- Common fields: `title`, `date`, `tags`, `categories`.
-- Keep heading levels ordered (`##` before `###`).
-- Keep lists and links clean/readable.
+Imports/requires:
+- Keep `require(...)` calls near the top.
+- Group dependency imports before local imports.
+- Avoid reorder-only diffs.
 
-### 4.7 Non-blog experimental scripts
-- Root Python scripts are non-core for this blog and can usually be ignored.
-- Do not change Python files unless the task explicitly requests it.
+Error handling:
+- Do not silently swallow important failures.
+- Fail fast on invalid required config.
+- Gracefully handle missing optional data.
+- Log enough context to debug build/runtime issues when adding new logic.
 
-### 4.8 Types and language boundaries
-- JS codebase is plain JavaScript (no TypeScript setup detected).
-- Do not add TS syntax to `.js` files.
-- If Python is touched, type hints are optional and should be minimal.
+## 9) EJS Template Style
+- Follow existing Stellar patterns in `themes/stellar/layout/`.
+- Compute local values first, then render partials/markup.
+- Prefer explicit variable names over terse aliases.
+- Reuse existing partials before creating new ones.
+- Keep conditions readable; avoid deep nesting when possible.
+- Do not reformat unrelated EJS blocks.
 
-### 4.9 Error handling
-- Never silently swallow exceptions.
-- Log enough context to debug failures.
-- Fail fast for invalid critical config.
-- Gracefully degrade when optional data is missing.
+## 10) Stylus/CSS Style
+- Follow the structure in `themes/stellar/source/css/`.
+- Prefer customization via `themes/stellar/source/css/_custom.styl` or config-driven options before editing core theme styles.
+- Keep selector naming and nesting aligned with nearby files.
+- Avoid broad global overrides unless required by the task.
+- For visual changes, verify both desktop and mobile rendering.
 
-## 5) High-Risk Areas / Hygiene
-- `themes/stellar/` is a submodule; upstream sync can overwrite local edits.
-- `public/` is generated output; avoid manual editing.
-- `.deploy_git/` is deployment state; avoid manual editing.
-- Root `_config.yml` and `_config.stellar.yml` can impact the full site.
+## 11) YAML And Config Style
+- Use 2-space indentation.
+- Preserve surrounding quoting style.
+- Keep keys compatible with Hexo and Stellar expectations.
+- Do not rename or remove config keys without verifying theme/plugin support.
+- Be cautious with `_config.yml` and `_config.stellar.yml`; small mistakes can break the whole site.
 
-## 6) Cursor / Copilot Rules Check
-Checked:
+## 12) Naming And Types
+- JavaScript identifiers: `camelCase`.
+- Markdown filenames: follow existing naming in the relevant folder.
+- Do not introduce TypeScript syntax into `.js` files.
+- If Python must be touched, keep it minimal and avoid broad modernization.
+
+## 13) High-Risk Areas
+- `themes/stellar/` is a submodule; upstream updates can overwrite local changes.
+- `public/` is generated output; do not hand-edit it.
+- `.deploy_git/` is deploy state; do not hand-edit it.
+- Taxonomy, permalink, and menu changes can affect many generated pages.
+
+## 14) Cursor / Copilot Rules Check
+Checked locations:
 - `.cursorrules`
 - `.cursor/rules/`
 - `.github/copilot-instructions.md`
 
-Result:
-- No Cursor or Copilot rule files found at scan time.
+Result at scan time:
+- No Cursor or Copilot rule files were present in this repository.
 
-If these files are added later, merge their guidance into this file and treat them as higher-priority instructions.
+If any of those files are added later, treat them as higher-priority instructions and merge them into this guide.
 
-## 7) Recommended Agent Workflow
-1. Read relevant config/content/theme files before editing.
-2. Make minimal localized changes.
-3. Run `yarn build`.
-4. For UI/template changes, run `yarn server` and verify pages manually.
-5. Report exactly what changed and how it was validated.
+## 15) Recommended Agent Workflow
+1. Read the relevant content, config, or theme files first.
+2. Prefer the smallest change that solves the task.
+3. Avoid touching the theme submodule unless necessary.
+4. Run `yarn build` after meaningful changes.
+5. For UI/theme changes, run `yarn server` and manually inspect affected pages.
+6. Report exactly what changed, where it changed, and how it was validated.

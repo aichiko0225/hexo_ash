@@ -1,7 +1,7 @@
 ---
 title: 关于iOS 多线程的问题
 date: 2016-11-18
-categories: IT技术
+categories: 技术
 tags: iOS
 ---
 

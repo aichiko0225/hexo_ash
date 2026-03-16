@@ -1,10 +1,10 @@
 ---
 title: React 学习参考
-categories: IT技术
+categories: 技术
 tags: 
 - React
 - JavaScript
-- 基础知识
+- Fundamentals
 ---
 
 以下是一些推荐的文字资源，可以帮助你深入学习 React 的原理和应用：

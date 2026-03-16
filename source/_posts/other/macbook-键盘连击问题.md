@@ -1,8 +1,11 @@
 ---
 title: macbook-键盘连击问题
-categories: 工作日常
+categories: 生活记录
 date: 2020.09.11
 updated: 2020.10.29
+tags:
+- macOS
+- Essay
 ---
 
 最近一段时间，我的笔记本（17年款 macbook pro 13寸）经常出现键盘连击问题。

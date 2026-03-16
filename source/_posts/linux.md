@@ -1,7 +1,10 @@
 ---
 title: Linux 基础
 date: 2017-07-06
-tags: 基础知识
+categories: 技术
+tags:
+- Linux
+- Fundamentals
 ---
 
 ### 一、Linux的简介

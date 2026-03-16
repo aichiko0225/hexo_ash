@@ -1,7 +1,7 @@
 ---
 title: iOS GIF图片的加载和合成
 date: 2017-02-11
-categories: IT技术
+categories: 技术
 tags: iOS
 ---
 

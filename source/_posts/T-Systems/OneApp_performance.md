@@ -1,10 +1,12 @@
 ---
 title: OneApp 性能与架构优化方案（内存与模块化）
 date: 2026-01-29
-categories: IT技术
+categories: 项目实践
 tags:
 - T-Systems
-- IT
+- OneApp
+- Architecture
+- Performance
 ---
 
 本方案包含三部分：性能与内存优化理论、架构改造（模块化完善）与内存优化实战，并补充性能监控方案、成本与风险评估。

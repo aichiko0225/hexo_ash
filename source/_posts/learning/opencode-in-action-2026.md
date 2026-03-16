@@ -1,11 +1,13 @@
 ---
 title: OpenCode 实战指南（2026）：从能用到好用
 date: 2026-03-15
-categories: IT技术
+categories: AI与工具
 tags:
-- Web
-- 工具链
 - AI
+- Coding Agent
+- Tooling
+- Workflow
+- OpenCode
 ---
 
 最近我把 OpenCode 当成主力 coding agent 在用。网上已经有不少“功能总览”文章，但很多内容像产品说明书：信息全，落地弱。
@@ -430,4 +432,3 @@ export OPENCODE_SERVER_USERNAME="opencode"
 - Agents: <https://opencode.ai/docs/agents/>
 - Commands: <https://opencode.ai/docs/commands/>
 - MCP Servers: <https://opencode.ai/docs/mcp-servers/>
-

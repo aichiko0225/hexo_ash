@@ -1,11 +1,11 @@
 ---
 title: JavaScript 温习记录（一）
 date: 2020-10-30
-categories: IT技术
+categories: 技术
 tags: 
-- Web
+- Frontend
 - JavaScript
-- 基础知识
+- Fundamentals
 ---
 
 ## 写在前面的话

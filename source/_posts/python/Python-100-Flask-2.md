@@ -1,7 +1,7 @@
 ---
 title: Python-Flask基础篇(二)
 date: 2020-03-21 19:12:10
-categories: IT技术
+categories: 技术
 tags: 
 - Python
 - Flask
@@ -732,4 +732,3 @@ INFO [alembic.runtime.migration] Running upgrade -> c52a02014635, add note times
 
 这里也没有介绍在`Flask`中使用文档型`NoSQL`数据库的过程。
 以流行的[MongoDB](https://www.mongodb.com/)为例，通过使用ODM（Object Document Mapper，对象文档映射），比如[MongoEngine](http://mongoengine.org/)，或是对应的扩展[Flask- MongoEngine](https://github.com/MongoEngine/flask-mongoengine)，其操作数据库的方式和使用本章要介绍的`SQLAlchemy`基本相同。
-

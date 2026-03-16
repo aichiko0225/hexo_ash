@@ -67,9 +67,42 @@ index_generator:
   order_by: -date
 
 # Category & Tag
-default_category: uncategorized
+default_category: 未分类
 category_map:
+  IT技术: 技术
+  读书笔记: 阅读与思考
+  工作日常: 生活记录
+  武汉: 生活记录
+  跑步的故事: 跑步
 tag_map:
+  Web: Frontend
+  基础知识: Fundamentals
+  效率工具: Productivity
+  State: State Management
+  Hooks: React Hooks
+  Vue3: Vue 3
+  CompositionAPI: Composition API
+  杂谈: Essay
+  随便写写: Essay
+  工具链: Tooling
+  工作流: Workflow
+  终端: Terminal
+  效率: Productivity
+  前端: Frontend
+  架构: Architecture
+  性能优化: Performance
+  基础: Fundamentals
+  实战: Practice
+  参考: Reference
+  武汉: Wuhan
+  阅读: Reading
+  书摘: Book Notes
+  随笔: Essay
+  游记: Travel
+  跑步: Running
+  马拉松: Marathon
+  状态管理: State Management
+  逆向: Reverse Engineering
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -107,31 +140,55 @@ deploy:
     repo: 'https://github.com/aichiko0225/memoirs'
 
 categories:
-  - IT技术
-  - 武汉
+  - 技术
+  - AI与工具
+  - 项目实践
+  - 阅读与思考
   - 关于世界的一切
-  - 工作日常
-  - 读书笔记
-  - 跑步的故事
+  - 生活记录
+  - 跑步
 
 tags:
+  - AI
+  - Coding Agent
+  - Tooling
+  - Workflow
+  - Terminal
+  - Productivity
+  - WezTerm
+  - OpenCode
+  - Frontend
+  - JavaScript
+  - React
+  - React Hooks
+  - Vue 3
+  - Composition API
+  - Python
+  - Flask
   - iOS
   - Swift
   - Flutter
-  - Web
-  - IT
-  - T-Systems
-  - React
-  - JavaScript
-  - Runtime
-  - Flask
-  - Python
+  - Linux
   - Java
-  - 逆向
-  - 基础知识
-  - 杂谈
-  - 随便写写
-  - 游记
+  - Runtime
+  - HarmonyOS
+  - Reverse Engineering
+  - State Management
+  - Architecture
+  - Performance
+  - Fundamentals
+  - Practice
+  - Reference
+  - T-Systems
+  - OneApp
+  - Wuhan
+  - Reading
+  - Book Notes
+  - Essay
+  - Travel
+  - macOS
+  - Running
+  - Marathon
 
 search:
   path: search.xml

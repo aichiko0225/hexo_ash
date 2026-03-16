@@ -1,9 +1,10 @@
 ---
 title: 剑来！
 date: 2020-02-07 11:51:31
+categories: 关于世界的一切
 tags: 
-  - 随便写写
-  - 杂谈
+  - Reading
+  - Essay
 ---
 
 # 剑来

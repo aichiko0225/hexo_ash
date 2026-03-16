@@ -1,9 +1,9 @@
 ---
 title: 逆向工程基础
 date: 2020-02-12 21:59:08
-categories: IT技术
+categories: 技术
 tags: 
-- 逆向
+- Reverse Engineering
 - iOS
 ---
 
@@ -197,4 +197,3 @@ LDP x29, x30, [sp, #0x10] ; 将栈中的值取出存放到x29, x30
 ### 最后的总结
 
 这些只是我们接触逆向时，必要的准备工作，还有进阶的知识，后面会慢慢讲解。
-

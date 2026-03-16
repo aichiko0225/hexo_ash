@@ -1,7 +1,7 @@
 ---
 title: Python-Flask基础篇(一)
 date: 2020-03-16 21:20:00
-categories: IT技术
+categories: 技术
 tags: 
 - Python
 - Flask

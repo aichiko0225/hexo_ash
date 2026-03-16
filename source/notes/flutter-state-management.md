@@ -5,7 +5,7 @@ updated: 2026-03-15 16:25:00
 wiki: notes
 tags:
   - Flutter
-  - State
+  - State Management
 ---
 
 # Flutter 状态管理入门速记

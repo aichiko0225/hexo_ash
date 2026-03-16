@@ -1,8 +1,10 @@
 ---
 title: 广州马拉松
 date: 2024-12-12 17:12:20
-categories: 跑步的故事
-tags: 随便写写
+categories: 跑步
+tags:
+- Running
+- Marathon
 type: story
 banner: /memoirs/images/running/guangzhou_1.jpg
 cover: /memoirs/images/running/guangzhou_3.jpg

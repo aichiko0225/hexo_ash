@@ -1,7 +1,7 @@
 ---
 title: Python-100天(二)-Python语言进阶
 date: 2020-03-10 21:51:59
-categories: IT技术
+categories: 技术
 tags: Python
 ---
 

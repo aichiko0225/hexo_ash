@@ -1,11 +1,11 @@
 ---
 title: React 技术栈（一）
 date: 2021-06-19
-categories: IT技术
+categories: 技术
 tags: 
 - React
 - JavaScript
-- 基础知识
+- Fundamentals
 ---
 
 ## ECMAScript 6 简介

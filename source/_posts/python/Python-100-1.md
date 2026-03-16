@@ -1,7 +1,7 @@
 ---
 title: Python-100天(一)
 date: 2020-03-05 23:54:55
-categories: IT技术
+categories: 技术
 tags: Python
 ---
 

@@ -4,8 +4,8 @@ date: 2026-03-15 16:30:00
 updated: 2026-03-15 16:30:00
 wiki: notes
 tags:
-  - Vue3
-  - CompositionAPI
+  - Vue 3
+  - Composition API
 ---
 
 # Vue 3 Composition API 实战速记

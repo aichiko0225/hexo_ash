@@ -1,9 +1,12 @@
 ---
 title: OneApp 鸿蒙（HarmonyOS）工作步骤文档
 date: 2026-01-29
-categories: IT技术
+categories: 项目实践
 tags:
 - T-Systems
+- OneApp
+- HarmonyOS
+- Architecture
 ---
 
 ## Step 0：前置约束与目标确认（必做）
