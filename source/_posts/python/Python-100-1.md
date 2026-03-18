@@ -52,7 +52,7 @@ tags: Python
 
 当然也可以查看已经整理好的简要文档
 
-#### Day01 - [初识Python](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/01.%E5%88%9D%E8%AF%86Python.md)
+#### Day01 - [初识Python](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/01.%E5%88%9D%E8%AF%86Python.md)
 
 - Python简介 - Python的历史 / Python的优缺点 / Python的应用领域
 - 搭建编程环境 - Windows环境 / Linux环境 / MacOS环境
@@ -60,7 +60,7 @@ tags: Python
 - 使用IDLE - 交互式环境(REPL) / 编写多行代码 / 运行程序 / 退出IDLE
 - 注释 - 注释的作用 / 单行注释 / 多行注释
 
-#### Day02 - [语言元素](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md)
+#### Day02 - [语言元素](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0.md)
 
 - 程序和进制 - 指令和程序 / 冯诺依曼机 / 二进制和十进制 / 八进制和十六进制
 - 变量和类型 - 变量的命名 / 变量的使用 / input函数 / 检查变量类型 / 类型转换
@@ -68,25 +68,25 @@ tags: Python
 - 运算符 - 数学运算符 / 赋值运算符 / 比较运算符 / 逻辑运算符 / 身份运算符 / 运算符的优先级
 - 应用案例 - 华氏温度转换成摄氏温度 / 输入圆的半径计算周长和面积 / 输入年份判断是否是闰年
 
-#### Day03 - [分支结构](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84.md)
+#### Day03 - [分支结构](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84.md)
 
 - 分支结构的应用场景 - 条件 / 缩进 / 代码块 / 流程图
 - if语句 - 简单的if / if-else结构 / if-elif-else结构 / 嵌套的if
 - 应用案例 - 用户身份验证 / 英制单位与公制单位互换 / 掷骰子决定做什么 / 百分制成绩转等级制 / 分段函数求值 / 输入三条边的长度如果能构成三角形就计算周长和面积
 
-#### Day04 - [循环结构](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.md)
+#### Day04 - [循环结构](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.md)
 
 - 循环结构的应用场景 - 条件 / 缩进 / 代码块 / 流程图
 - while循环 - 基本结构 / break语句 / continue语句
 - for循环 - 基本结构 / range类型 / 循环中的分支结构 / 嵌套的循环 / 提前结束程序 
 - 应用案例 - 1~100求和 / 判断素数 / 猜数字游戏 / 打印九九表 / 打印三角形图案 / 猴子吃桃 / 百钱百鸡
 
-#### Day05 - [05.构造程序逻辑](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91.md)
+#### Day05 - [05.构造程序逻辑](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91.md)
 
 - 经典案例：水仙花数 / 百钱百鸡 / Craps赌博游戏
 - 练习题目：斐波那契数列 / 完美数 / 素数
 
-#### Day06 - [函数和模块的使用](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8.md)
+#### Day06 - [函数和模块的使用](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8.md)
 
 - 函数的作用 - 代码的坏味道 / 用函数封装功能模块
 - 定义函数 - def语句 / 函数名 / 参数列表 / return语句 / 调用自定义函数
@@ -96,7 +96,7 @@ tags: Python
 - 作用域问题 - 局部作用域 / 嵌套作用域 / 全局作用域 / 内置作用域 / 和作用域相关的关键字
 - 用模块管理函数 - 模块的概念 / 用自定义模块管理函数 / 命名冲突的时候会怎样（同一个模块和不同的模块）
 
-#### Day07 - [字符串和常用数据结构](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+#### Day07 - [字符串和常用数据结构](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
 
 - 字符串的使用 - 计算长度 / 下标运算 / 切片 / 常用方法
 - 列表基本用法 - 定义列表 / 用下表访问元素 / 下标越界 / 添加元素 / 删除元素 / 修改元素 / 切片 / 循环遍历
@@ -110,7 +110,7 @@ tags: Python
 - 基础练习 - 跑马灯效果 / 列表找最大元素 / 统计考试成绩的平均分 / Fibonacci数列 / 杨辉三角
 - 综合案例 - 双色球选号 / 井字棋
 
-#### Day08 - [面向对象编程基础](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.md)
+#### Day08 - [面向对象编程基础](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.md)
 
 - 类和对象 - 什么是类 / 什么是对象 / 面向对象其他相关概念
 - 定义类 - 基本结构 / 属性和方法 / 构造器 / 析构器 / \_\_str\_\_方法
@@ -118,7 +118,7 @@ tags: Python
 - 面向对象的四大支柱 - 抽象 / 封装 / 继承 / 多态
 - 基础练习 - 定义学生类 / 定义时钟类 / 定义图形类 / 定义汽车类
 
-#### Day09 - [面向对象进阶](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6.md)
+#### Day09 - [面向对象进阶](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6.md)
 
 - 属性 - 类属性 / 实例属性 / 属性访问器 / 属性修改器 / 属性删除器 / 使用\_\_slots\_\_
 - 类中的方法 - 实例方法 / 类方法 / 静态方法
@@ -127,33 +127,33 @@ tags: Python
 - 继承和多态 - 什么是继承 / 继承的语法 / 调用父类方法 / 方法重写 / 类型判定 / 多重继承 / 菱形继承(钻石继承)和C3算法
 - 综合案例 - 工资结算系统 / 图书自动折扣系统 / 自定义分数类
 
-#### Day10 - [图形用户界面和游戏开发](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91.md)
+#### Day10 - [图形用户界面和游戏开发](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91.md)
 
 - 使用tkinter开发GUI程序
 - 使用pygame三方库开发游戏应用
 - “大球吃小球”游戏
 
-#### Day11 - [文件和异常](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8.md)
+#### Day11 - [文件和异常](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8.md)
 
 - 读文件 - 读取整个文件 / 逐行读取 / 文件路径
 - 写文件 - 覆盖写入 / 追加写入 / 文本文件 / 二进制文件
 - 异常处理 - 异常机制的重要性 / try-except代码块 / else代码块 / finally代码块 / 内置异常类型 / 异常栈 / raise语句
 - 数据持久化 - CSV文件概述 / csv模块的应用 / JSON数据格式 / json模块的应用
 
-#### Day12 - [字符串和正则表达式](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
+#### Day12 - [字符串和正则表达式](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
 - 字符串高级操作 - 转义字符 / 原始字符串 / 多行字符串 / in和 not in运算符 / is开头的方法 / join和split方法 / strip相关方法 / pyperclip模块 / 不变字符串和可变字符串 / StringIO的使用
 - 正则表达式入门 - 正则表达式的作用 / 元字符 / 转义 / 量词 / 分组 / 零宽断言 /贪婪匹配与惰性匹配懒惰 / 使用re模块实现正则表达式操作（匹配、搜索、替换、捕获）
 - 使用正则表达式 - re模块 / compile函数 / group和groups方法 / match方法 / search方法 / findall和finditer方法 / sub和subn方法 / split方法
 - 应用案例 - 使用正则表达式验证输入的字符串
 
-#### Day13 - [进程和线程](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B.md)
+#### Day13 - [进程和线程](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B.md)
 
 - 进程和线程的概念 - 什么是进程 / 什么是线程 / 多线程的应用场景
 - 使用进程 - fork函数 / multiprocessing模块 / 进程池 / 进程间通信
 - 使用线程 - thread模块 / threading模块 / Thread类 / Lock类 / Condition类 / 线程池
 
-#### Day14 - [网络编程入门和网络应用开发](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91.md)
+#### Day14 - [网络编程入门和网络应用开发](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91.md)
 
 - 计算机网络基础 - 计算机网络发展史 / “TCP-IP”模型 / IP地址 / 端口 / 协议 / 其他相关概念
 - 网络应用模式 - “客户端-服务器”模式 / “浏览器-服务器”模式
@@ -162,7 +162,7 @@ tags: Python
 - 电子邮件 - SMTP协议 / POP3协议 / IMAP协议 / smtplib模块 / poplib模块 / imaplib模块
 - 短信服务 - 调用短信服务网关
 
-#### Day15 - [图像和办公文档处理](https://github.com/aichiko0225/Python-100-Days/blob/master/Day01-15/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86.md)
+#### Day15 - [图像和办公文档处理](https://github.com/minniexcode/Python-100-Days/blob/master/Day01-15/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86.md)
 
 - 用Pillow处理图片 - 图片读写 / 图片合成 / 几何变换 / 色彩转换 / 滤镜效果
 - 读写Word文档 - 文本内容的处理 / 段落 / 页眉和页脚 / 样式的处理
