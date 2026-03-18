@@ -6,6 +6,8 @@ import time
 import json
 import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # 忽略 InsecureRequestWarning
 from requests.packages.urllib3.exceptions import InsecureRequestWarning # type: ignore
 warnings.simplefilter('ignore', InsecureRequestWarning)
@@ -19,7 +21,7 @@ rest_time_between_votes = (3, 10)  # 10-20秒
 # rest_time_between_votes = (10, 20)  # 10-20秒
 rest_time_after_20_votes = 60  # 10分钟
 ip_change_after_votes = 5
-open_id_file = 'open_ids.json'
+open_id_file = os.path.join(BASE_DIR, 'open_ids.json')
 
 # proxies_json = {
 #     "data": [
@@ -47,7 +49,7 @@ def random_proxy():
     # init_proxies is empty
     if not init_proxies:
         # read proxy_list.json
-        with open('http.txt', 'r') as file:
+        with open(os.path.join(BASE_DIR, 'http.txt'), 'r') as file:
             init_proxies = file.read().splitlines()  # 按行读取并去除换行符
             # data = json.load(f)
             # init_proxies = data.get('data', [])  # 获取 'data' 字段中的代理列表
