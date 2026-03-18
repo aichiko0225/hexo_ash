@@ -9,12 +9,12 @@ comments:
   comment_title: 来都来了，聊两句吧
   lazyload: false
   beaudar:
-    repo: aichiko0225/blog-comments
+    repo: minniexcode/blog-comments
     issue-term: pathname
     theme: preferred-color-scheme
     label: comments
   utterances:
-    repo: aichiko0225/blog-comments
+    repo: minniexcode/blog-comments
     issue-term: pathname
     theme: preferred-color-scheme
     label: comments
@@ -97,7 +97,7 @@ footer:
   social:
     github:
       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-      url: https://github.com/aichiko0225
+      url: https://github.com/minniexcode
   content: | # 支持 Markdown 格式
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
 

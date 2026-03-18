@@ -7,7 +7,7 @@
 - 包管理与脚本：`yarn`
 - 部署：`hexo-deployer-git`，发布到 `memoirs` 仓库
 
-线上地址（当前配置）：`https://aichiko0225.github.com/memoirs`
+线上地址（当前配置）：`https://minniexcode.github.io/memoirs`
 
 ---
 
@@ -25,6 +25,7 @@
 
 - `public/` 是构建产物目录（每次 `yarn build` 会重建）
 - `.deploy_git/` 是 Hexo deploy 的工作目录，可删除，部署时会自动重建
+- `tools/legacy_python/` 里是历史遗留的 Python 小脚本和数据文件，当前博客主流程基本不依赖它们
 
 ---
 

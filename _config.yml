@@ -14,7 +14,7 @@ favicon: /favicon.png
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://aichiko0225.github.com/memoirs
+url: https://minniexcode.github.io/memoirs
 # permalink: :year/:month/:day/:title/
 permalink: :year:month:day/:title/
 permalink_defaults:
@@ -137,7 +137,7 @@ theme: stellar
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: 'git'
-    repo: 'https://github.com/aichiko0225/memoirs'
+    repo: 'git@github.com:minniexcode/memoirs.git'
 
 categories:
   - 技术
