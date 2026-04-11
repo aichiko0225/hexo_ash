@@ -137,7 +137,8 @@ theme: stellar
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: 'git'
-    repo: 'git@github.com:minniexcode/memoirs.git'
+    # repo: 'git@github.com:minniexcode/memoirs.git'
+    repo: 'https://github.com/minniexcode/memoirs.git'
     branch: master
 
 categories:
